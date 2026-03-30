@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recettes</title>
+<style>
+  :root {
+    --bg: #faf8f5;
+    --surface: #fff;
+    --text: #2c2c2c;
+    --text-muted: #6b6b6b;
+    --accent: #b44a2f;
+    --accent-hover: #933a24;
+    --border: #e4ddd5;
+    --search-bg: #f3efe9;
+    --tag-bg: #eee8df;
+    --tag-active-bg: #b44a2f;
+    --tag-active-text: #fff;
+    --highlight: #fce8b2;
+    --shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 2rem 1.5rem 1.25rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+
+  .header-inner {
+    max-width: 52rem;
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    margin-bottom: 0.2rem;
+    color: var(--text);
+  }
+
+  .subtitle {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+
+  .search-wrap {
+    position: relative;
+    margin-bottom: 0.85rem;
+  }
+
+  .search-wrap svg {
+    position: absolute;
+    left: 0.85rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    stroke: var(--text-muted);
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  #search {
+    width: 100%;
+    padding: 0.65rem 0.85rem 0.65rem 2.5rem;
+    font-family: inherit;
+    font-size: 0.95rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--search-bg);
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+
+  #search:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(180,74,47,0.12);
+  }
+
+  #search::placeholder { color: #a09888; }
+
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .tab {
+    font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    padding: 0.3rem 0.7rem;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    background: var(--tag-bg);
+    color: var(--text);
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+    white-space: nowrap;
+    user-select: none;
+  }
+
+  .tab:hover { border-color: var(--accent); color: var(--accent); }
+
+  .tab.active {
+    background: var(--tag-active-bg);
+    color: var(--tag-active-text);
+    border-color: var(--tag-active-bg);
+  }
+
+  .search-count {
+    font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+    display: none;
+  }
+
+  main {
+    max-width: 52rem;
+    margin: 0 auto;
+    padding: 1.5rem 1.5rem 4rem;
+  }
+
+  .section {
+    margin-bottom: 2.5rem;
+  }
+
+  .section-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text);
+    padding-bottom: 0.35rem;
+    border-bottom: 2px solid var(--accent);
+    margin-bottom: 0.25rem;
+    letter-spacing: 0.01em;
+  }
+
+  .section-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+
+  .subsection-title {
+    font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-top: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .recipe-list {
+    list-style: none;
+  }
+
+  .recipe-item {
+    padding: 0.4rem 0;
+    border-bottom: 1px solid #eee8df;
+    font-size: 0.95rem;
+    transition: background 0.1s;
+  }
+
+  .recipe-item:last-child { border-bottom: none; }
+
+  .recipe-item:hover { background: rgba(180,74,47,0.03); }
+
+  .recipe-item a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.1s;
+  }
+
+  .recipe-item a:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+  }
+
+  .recipe-item .plain {
+    color: var(--text);
+  }
+
+  .recipe-item .variant-sep {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin: 0 0.15rem;
+  }
+
+  .recipe-item mark {
+    background: var(--highlight);
+    color: inherit;
+    border-radius: 2px;
+    padding: 0 1px;
+  }
+
+  .no-results {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--text-muted);
+    font-style: italic;
+    display: none;
+  }
+
+  .hidden { display: none !important; }
+
+  @media (max-width: 600px) {
+    header { padding: 1.25rem 1rem 1rem; }
+    main { padding: 1rem 1rem 3rem; }
+    h1 { font-size: 1.4rem; }
+    .tab { font-size: 0.72rem; padding: 0.25rem 0.55rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <h1>Recettes</h1>
+    <p class="subtitle">Imported from Confluence &mdash; February 2026</p>
+    <div class="search-wrap">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="search" placeholder="Search recipes..." autocomplete="off" spellcheck="false">
+    </div>
+    <nav class="tabs" id="tabs"></nav>
+    <div class="search-count" id="searchCount"></div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- LOW-CARB / WEIGHT LOSS -->
+  <div class="section" data-section="Low-Carb / Weight Loss">
+    <h2 class="section-title">Low-Carb / Weight Loss</h2>
+    <p class="section-desc">High protein, generous vegetables, minimal carbs. Designed to be filling without restriction.</p>
+
+    <h3 class="subsection-title">Breakfast</h3>
+    <ul class="recipe-list">
+      <li class="recipe-item" data-name="Scrambled Eggs with Spinach and Feta"><a href="scrambled-eggs-spinach-feta.md">Scrambled Eggs with Spinach and Feta</a></li>
+      <li class="recipe-item" data-name="Greek Yogurt with Walnuts and Berries"><a href="greek-yogurt-walnuts-berries.md">Greek Yogurt with Walnuts and Berries</a></li>
+      <li class="recipe-item" data-name="Omelette with Ham, Mushrooms, and Cheese"><a href="omelette-ham-mushrooms-cheese.md">Omelette with Ham, Mushrooms, and Cheese</a></li>
+      <li class="recipe-item" data-name="Smoked Salmon Plate"><a href="smoked-salmon-plate.md">Smoked Salmon Plate</a></li>
+    </ul>
+
+    <h3 class="subsection-title">Lunch</h3>
+    <ul class="recipe-list">
+      <li class="recipe-item" data-name="Grilled Chicken Arugula Salad with Avocado"><a href="chicken-arugula-avocado-salad.md">Grilled Chicken Arugula Salad with Avocado</a></li>
+      <li class="recipe-item" data-name="Ground Beef Stir-Fry with Vegetables"><a href="ground-beef-stir-fry.md">Ground Beef Stir-Fry with Vegetables</a></li>
+      <li class="recipe-item" data-name="Tuna Salad with Greens and Capers"><a href="tuna-salad-greens-capers.md">Tuna Salad with Greens and Capers</a></li>
+      <li class="recipe-item" data-name="Lettuce-Wrapped Burgers with Low-Carb Coleslaw"><a href="lettuce-wrapped-burgers.md">Lettuce-Wrapped Burgers with Low-Carb Coleslaw</a></li>
+    </ul>
+
+    <h3 class="subsection-title">Dinner</h3>
+    <ul class="recipe-list">
+      <li class="recipe-item" data-name="Pan-Seared Salmon with Roasted Broccoli and Zucchini"><a href="pan-seared-salmon-roasted-broccoli-zucchini.md">Pan-Seared Salmon with Roasted Broccoli and Zucchini</a></li>
+      <li class="recipe-item" data-name="Pork Tenderloin with Roasted Cauliflower and Green Beans"><a href="pork-tenderloin-cauliflower-green-beans.md">Pork Tenderloin with Roasted Cauliflower and Green Beans</a></li>
+      <li class="recipe-item" data-name="Steak with Sautéed Asparagus and Crispy Brussels Sprouts"><a href="steak-asparagus-brussels-sprouts.md">Steak with Saut&eacute;ed Asparagus and Crispy Brussels Sprouts</a></li>
+      <li class="recipe-item" data-name="Braised Chicken Thighs with Tomatoes, Olives, and Capers"><a href="braised-chicken-thighs-tomatoes-olives-capers.md">Braised Chicken Thighs with Tomatoes, Olives, and Capers</a></li>
+    </ul>
+
+    <h3 class="subsection-title">Snacks</h3>
+    <ul class="recipe-list">
+      <li class="recipe-item" data-name="Almonds + cucumber slices"><span class="plain">Almonds + cucumber slices</span></li>
+      <li class="recipe-item" data-name="Celery with almond butter or cream cheese"><span class="plain">Celery with almond butter or cream cheese</span></li>
+      <li class="recipe-item" data-name="Hard-boiled eggs"><span class="plain">Hard-boiled eggs</span></li>
+      <li class="recipe-item" data-name="Cheese slices + olives"><span class="plain">Cheese slices + olives</span></li>
+      <li class="recipe-item" data-name="Deli turkey rolled around cream cheese"><span class="plain">Deli turkey rolled around cream cheese</span></li>
+      <li class="recipe-item" data-name="Avocado with salt and lime"><span class="plain">Avocado with salt and lime</span></li>
+      <li class="recipe-item" data-name="Macadamia nuts"><span class="plain">Macadamia nuts</span></li>
+      <li class="recipe-item" data-name="Bone broth"><span class="plain">Bone broth</span></li>
+    </ul>
+  </div>
+
+  <!-- RECETTES DE TOUS LES JOURS -->
+  <div class="section" data-section="Recettes de tous les jours">
+    <h2 class="section-title">Recettes de tous les jours</h2>
+
+    <h3 class="subsection-title">Lunch</h3>
+    <ul class="recipe-list">
+      <li class="recipe-item" data-name="Salade de haricots blancs et de crevettes grillées"><a href="salade-de-haricots-blancs-et-de-crevettes-grillees.md">Salade de haricots blancs et de crevettes grill&eacute;es</a></li>
+      <li class="recipe-item" data-name="Quinoa au tofu et salade de kale + Sauce dragon"><a href="quinoa-au-tofu-et-salade-de-kale.md">Quinoa au tofu et salade de kale</a> + <a href="sauce-dragon.md">Sauce dragon</a></li>
+      <li class="recipe-item" data-name="Quinoa aux légumes grillés et au tofu"><a href="quinoa-aux-legumes-grilles-et-au-tofu.md">Quinoa aux l&eacute;gumes grill&eacute;s et au tofu</a></li>
+      <li class="recipe-item" data-name="Bol d'orge aux dattes et aux légumes rôtis"><a href="bol-d-orge-aux-dattes-et-aux-legumes-rotis.md">Bol d'orge aux dattes et aux l&eacute;gumes r&ocirc;tis</a></li>
+      <li class="recipe-item" data-name="Salade de quinoa au poulet et aux abricots séchés"><a href="salade-de-quinoa-au-poulet-et-aux-abricots-seches.md">Salade de quinoa au poulet et aux abricots s&eacute;ch&eacute;s</a></li>
+      <li class="recipe-item" data-name="Salade de chou crémeuse"><a href="salade-de-chou-cremeuse.md">Salade de chou cr&eacute;meuse</a></li>
+      <li class="recipe-item" data-name="Salade de pâtes à l'italienne"><a href="salade-de-pates-a-l-italienne.md">Salade de p&acirc;tes &agrave; l'italienne</a></li>
+      <li class="recipe-item" data-name="Salade d'asperges et de pois chiches avec fromage halloumi grillé"><a href="salade-d-asperges-et-de-pois-chiches-avec-fromage-halloumi-grille.md">Salade d'asperges et de pois chiches avec fromage halloumi grill&eacute;</a></li>
+      <li class="recipe-item" data-name="Wraps au thon et au cari"><a href="wraps-au-thon-et-au-cari.md">Wraps au thon et au cari</a></li>
+      <li class="recipe-item" data-name="Sandwichs à la salade de poulet revisités"><a href="sandwichs-a-la-salade-de-poulet-revisites.md">Sandwichs &agrave; la salade de poulet revisit&eacute;s</a></li>
+      <li class="recipe-item" data-name="Sandwich au poulet à la vietnamienne"><a href="sandwich-au-poulet-a-la-vietnamienne.md">Sandwich au poulet &agrave; la vietnamienne</a></li>
+      <li class="recipe-item" data-name="Bols de nouilles ramen et saumon à la sauce hoisin"><a href="bols-de-nouilles-ramen-et-saumon-a-la-sauce-hoisin.md">Bols de nouilles ramen et saumon &agrave; la sauce hoisin</a></li>
+      <li class="recipe-item" data-name="Bols de patates douces, pois chiches à l'harissa et yogourt grec à l'avocat"><a href="bols-de-patates-douces-pois-chiches-a-l-harissa.md">Bols de patates douces, pois chiches &agrave; l'harissa et yogourt grec &agrave; l'avocat</a></li>
+      <li class="recipe-item" data-name="Bol Buddha"><a href="bol-buddha.md">Bol Buddha</a></li>
+      <li class="recipe-item" data-name="Kale Salad with Green Tahini Dressing"><a href="kale-salad-green-tahini.md">Kale Salad with Green Tahini Dressing</a></li>
+      <li class="recipe-item" data-name="Salade de crevettes grillées style rouleaux de printemps"><a href="salade-de-crevettes-grillees-style-rouleaux-de-printemps.md">Salade de crevettes grill&eacute;es style rouleaux de printemps</a></li>
+      <li class="recipe-item" data-name="Salade tiède de patates douces, kale et poulet"><a href="salade-tiede-de-patates-douces-kale-et-poulet.md">Salade ti&egrave;de de patates douces, kale et poulet</a></li>
+      <li class="recipe-item" data-name="Salade de halloumi et de patates douces rôties, vinaigrette à l'aneth"><a href="salade-de-halloumi-et-de-patates-douces-roties.md">Salade de halloumi et de patates douces r&ocirc;ties, vinaigrette &agrave; l'aneth</a></li>
+      <li class="recipe-item" data-name="US Senate Soup Joy of Cooking p. 133"><span class="plain">US Senate Soup &mdash; Joy of Cooking, p. 133</span></li>
+    </ul>
+
+    <h3 class="subsection-title">Souper</h3>
+    <ul class="recipe-list">
+      <li class="recipe-item" data-name="BA's Best Bolognese"><a href="bas-best-bolognese-ba.md">BA's Best Bolognese</a></li>
+      <li class="recipe-item" data-name="Thai Red Curry"><a href="thai-red-curry.md">Thai Red Curry</a></li>
+      <li class="recipe-item" data-name="Pâtes aux légumes et aux crevettes"><a href="pates-aux-legumes-et-aux-crevettes.md">P&acirc;tes aux l&eacute;gumes et aux crevettes</a></li>
+      <li class="recipe-item" data-name="Courge farcie au quinoa et au cheddar"><a href="courge-farcie-au-quinoa-et-au-cheddar.md">Courge farcie au quinoa et au cheddar</a></li>
+      <li class="recipe-item" data-name="Crispy-Skinned Fish with Herb Sauce"><a href="crispy-skinned-fish-with-herb-sauce.md">Crispy-Skinned Fish with Herb Sauce</a></li>
+      <li class="recipe-item" data-name="Mac & Cheese Ricardo Bon Appétit"><span class="plain">Mac &amp; Cheese</span> &mdash; <a href="macaronis-gratines-au-fromage.md">Ricardo</a> <span class="variant-sep">/</span> <a href="bas-best-macaroni-and-cheese.md">Bon App&eacute;tit</a></li>
+      <li class="recipe-item" data-name="Poulet au beurre Ricardo Chicken Tikka Masala"><span class="plain">Poulet au beurre</span> &mdash; <a href="poulet-au-beurre.md">Ricardo</a> <span class="variant-sep">/</span> <a href="chicken-tikka-masala.md">Chicken Tikka Masala</a></li>
+      <li class="recipe-item" data-name="Classic Caesar Salad"><a href="classic-caesar-salad.md">Classic Caesar Salad</a></li>
+      <li class="recipe-item" data-name="Ratatouille Ricardo Pasta version"><span class="plain">Ratatouille</span> &mdash; <a href="ratatouille-ricardo.md">Ricardo</a> <span class="variant-sep">/</span> <a href="ratatouille-pasta.md">Pasta version</a></li>
+      <li class="recipe-item" data-name="Fajitas au poulet Ricardo Fajita seasoning"><span class="plain">Fajitas au poulet</span> &mdash; <a href="fajitas-au-poulet.md">Ricardo</a> <span class="variant-sep">/</span> <a href="fajita-seasoning.md">Fajita seasoning</a></li>
+      <li class="recipe-item" data-name="Tacos végétariens à la patate douce"><a href="tacos-vegetariens-a-la-patate-douce.md">Tacos v&eacute;g&eacute;tariens &agrave; la patate douce</a></li>
+      <li class="recipe-item" data-name="Poulet aux arachides et aux épinards v1 v2"><span class="plain">Poulet aux arachides et aux &eacute;pinards</span> &mdash; <a href="poulet-aux-arachides-et-aux-epinards.md">v1</a> <span class="variant-sep">/</span> <a href="poulet-aux-arachides-de-mon-ami-ha.md">v2</a></li>
+      <li class="recipe-item" data-name="Minestrone Serious Eats Cookie and Kate Ricardo"><span class="plain">Minestrone</span> &mdash; <a href="minestrone-serious-eats.md">Serious Eats</a> <span class="variant-sep">/</span> <a href="minestrone-cookie-and-kate.md">Cookie and Kate</a> <span class="variant-sep">/</span> <a href="minestrone-ricardo.md">Ricardo</a></li>
+      <li class="recipe-item" data-name="Couscous royal"><a href="couscous-royal.md">Couscous royal</a></li>
+      <li class="recipe-item" data-name="Soupe repas aux légumes et aux pois chiches"><a href="soupe-repas-aux-legumes-et-aux-pois-chiches.md">Soupe repas aux l&eacute;gumes et aux pois chiches</a></li>
+      <li class="recipe-item" data-name="One Pot French Onion Pasta"><a href="one-pot-french-onion-pasta.md">One Pot French Onion Pasta</a></li>
+      <li class="recipe-item" data-name="Casserole de nouilles au thon"><a href="casserole-de-nouilles-au-thon.md">Casserole de nouilles au thon</a></li>
+      <li class="recipe-item" data-name="Baked Teriyaki Chicken"><a href="baked-teriyaki-chicken.md">Baked Teriyaki Chicken</a></li>
+      <li class="recipe-item" data-name="Cajun Seafood Pasta"><a href="cajun-seafood-pasta.md">Cajun Seafood Pasta</a></li>
+      <li class="recipe-item" data-name="Poulet shish taouk"><a href="poulet-shish-taouk.md">Poulet shish taouk</a></li>
+      <li class="recipe-item" data-name="Poulet chasseur"><a href="poulet-chasseur.md">Poulet chasseur</a></li>
+      <li class="recipe-item" data-name="Poulet grillé à la portugaise"><a href="poulet-grille-a-la-portugaise.md">Poulet grill&eacute; &agrave; la portugaise</a></li>
+      <li class="recipe-item" data-name="Pad Thai"><a href="pad-thai-ricardo.md">Pad Thai</a></li>
+      <li class="recipe-item" data-name="Thai Coconut Soup"><a href="thai-coconut-soup.md">Thai Coconut Soup</a></li>
+      <li class="recipe-item" data-name="Bol poké"><a href="bol-poke.md">Bol pok&eacute;</a></li>
+      <li class="recipe-item" data-name="Gnocchis au chou-fleur caramélisé"><a href="gnocchis-au-chou-fleur-caramelise.md">Gnocchis au chou-fleur caram&eacute;lis&eacute;</a></li>
+      <li class="recipe-item" data-name="Yaki Udon Noodles"><a href="yaki-udon-noodles.md">Yaki Udon Noodles</a></li>
+      <li class="recipe-item" data-name="Chicken Thigh Marinade"><a href="chicken-thigh-marinade.md">Chicken Thigh Marinade</a></li>
+      <li class="recipe-item" data-name="Saumon grillé au miso et condiment à l'arachide et au gingembre rôti"><a href="saumon-grille-au-miso.md">Saumon grill&eacute; au miso et condiment &agrave; l'arachide et au gingembre r&ocirc;ti</a></li>
+      <li class="recipe-item" data-name="Asian Chopped Salad"><a href="asian-chopped-salad.md">Asian Chopped Salad</a></li>
+    </ul>
+  </div>
+
+  <!-- RECETTES POUR DES OCCASIONS -->
+  <div class="section" data-section="Recettes pour des occasions">
+    <h2 class="section-title">Recettes pour des occasions</h2>
+
+    <h3 class="subsection-title">Plat principal</h3>
+    <ul class="recipe-list">
+      <li class="recipe-item" data-name="Rôti de porc aux patates jaunes"><a href="roti-de-porc-aux-patates-jaunes.md">R&ocirc;ti de porc aux patates jaunes</a></li>
+      <li class="recipe-item" data-name="World's Best Lasagna"><a href="worlds-best-lasagna.md">World's Best Lasagna</a></li>
+      <li class="recipe-item" data-name="Bœuf braisé au vin rouge"><a href="boeuf-braise-au-vin-rouge.md">B&oelig;uf brais&eacute; au vin rouge</a></li>
+      <li class="recipe-item" data-name="Slow Roast Gochujang Chicken"><a href="slow-roast-gochujang-chicken.md">Slow Roast Gochujang Chicken</a></li>
+      <li class="recipe-item" data-name="Pâte à pizza maison"><a href="pate-a-pizza-maison.md">P&acirc;te &agrave; pizza maison</a></li>
+      <li class="recipe-item" data-name="Saag Paneer but with Feta"><a href="saag-paneer-but-with-feta.md">Saag Paneer but with Feta</a></li>
+      <li class="recipe-item" data-name="Tartare de saumon"><a href="tartare-de-saumon.md">Tartare de saumon</a></li>
+      <li class="recipe-item" data-name="Tartare de bœuf Ricardo Bon Appétit"><span class="plain">Tartare de b&oelig;uf</span> &mdash; <a href="tartare-de-boeuf-ricardo.md">Ricardo</a> <span class="variant-sep">/</span> <a href="beef-tartare-with-cherry-peppers.md">Bon App&eacute;tit</a></li>
+      <li class="recipe-item" data-name="Chili Halftime Chili BA Ricardo"><span class="plain">Chili</span> &mdash; <a href="halftime-chili.md">Halftime Chili (BA)</a> <span class="variant-sep">/</span> <a href="chili-classique-au-boeuf.md">Ricardo</a></li>
+      <li class="recipe-item" data-name="Saffron Risotto"><a href="saffron-risotto.md">Saffron Risotto</a></li>
+      <li class="recipe-item" data-name="Paella"><a href="paella-ricardo.md">Paella</a></li>
+      <li class="recipe-item" data-name="Steak Diane Food & Wine Gordon Ramsay"><span class="plain">Steak Diane</span> &mdash; <a href="steak-diane-food-and-wine.md">Food &amp; Wine</a> <span class="variant-sep">/</span> <a href="steak-diane-gordon-ramsay.md">Gordon Ramsay</a></li>
+      <li class="recipe-item" data-name="Rôti de bœuf à l'oignon"><a href="roti-de-boeuf-a-l-oignon.md">R&ocirc;ti de b&oelig;uf &agrave; l'oignon</a></li>
+      <li class="recipe-item" data-name="Bœuf bourguignon Ricardo v1 v2 Joy of Cooking"><span class="plain">B&oelig;uf bourguignon</span> &mdash; <a href="boeuf-bourguignon-v1.md">Ricardo v1</a> <span class="variant-sep">/</span> <a href="boeuf-bourguignon-v2.md">Ricardo v2</a> <span class="variant-sep">/</span> <span class="plain">Joy of Cooking</span></li>
+      <li class="recipe-item" data-name="Chicken Marengo Joy of Cooking p. 433"><span class="plain">Chicken Marengo &mdash; Joy of Cooking, p. 433</span></li>
+      <li class="recipe-item" data-name="Whisky Grilled Baby Back Ribs"><a href="whisky-grilled-baby-back-ribs.md">Whisky Grilled Baby Back Ribs</a></li>
+      <li class="recipe-item" data-name="Pistachio Crusted Rack of Lamb"><a href="pistachio-crusted-rack-of-lamb.md">Pistachio Crusted Rack of Lamb</a></li>
+      <li class="recipe-item" data-name="Baked Mushroom Risotto"><a href="baked-mushroom-risotto.md">Baked Mushroom Risotto</a></li>
+      <li class="recipe-item" data-name="Pork Carnitas"><a href="pork-carnitas.md">Pork Carnitas</a></li>
+      <li class="recipe-item" data-name="Moussaka classique"><a href="moussaka-classique.md">Moussaka classique</a></li>
+      <li class="recipe-item" data-name="Coquilles Saint-Jacques"><a href="coquilles-saint-jacques.md">Coquilles Saint-Jacques</a></li>
+      <li class="recipe-item" data-name="Rôti de côte de bœuf"><a href="roti-de-cote-de-boeuf.md">R&ocirc;ti de c&ocirc;te de b&oelig;uf</a></li>
+      <li class="recipe-item" data-name="Baked Mac and Cheese"><a href="baked-mac-and-cheese.md">Baked Mac and Cheese</a></li>
+    </ul>
+
+    <h3 class="subsection-title">Autres</h3>
+    <ul class="recipe-list">
+      <li class="recipe-item" data-name="French Onion Soup"><a href="french-onion-soup-nyt.md">French Onion Soup</a></li>
+      <li class="recipe-item" data-name="Gravlax"><a href="gravlax.md">Gravlax</a></li>
+      <li class="recipe-item" data-name="Buffalo Wing Popcorn"><a href="buffalo-wing-popcorn.md">Buffalo Wing Popcorn</a></li>
+      <li class="recipe-item" data-name="Chocolate Chip Cookies BA's Best AllRecipes"><span class="plain">Chocolate Chip Cookies</span> &mdash; <a href="bas-best-chocolate-chip-cookies.md">BA's Best</a> <span class="variant-sep">/</span> <a href="best-chocolate-chip-cookies-allrecipes.md">AllRecipes</a></li>
+      <li class="recipe-item" data-name="Spinach Dip"><a href="spinach-dip.md">Spinach Dip</a></li>
+      <li class="recipe-item" data-name="Brownies choco-noisettes"><a href="brownies-choco-noisettes.md">Brownies choco-noisettes</a></li>
+      <li class="recipe-item" data-name="Beer Cheese Dip in a Bread Bowl Joy of Cooking p. 73"><span class="plain">Beer Cheese Dip in a Bread Bowl &mdash; Joy of Cooking, p. 73</span></li>
+      <li class="recipe-item" data-name="Banana Bread AllRecipes Ricardo"><span class="plain">Banana Bread</span> &mdash; <a href="banana-bread-allrecipes.md">AllRecipes</a> <span class="variant-sep">/</span> <a href="pain-aux-bananes.md">Ricardo</a></li>
+      <li class="recipe-item" data-name="Œufs bénédictine"><a href="oeufs-benedictine.md">&OElig;ufs b&eacute;n&eacute;dictine</a></li>
+      <li class="recipe-item" data-name="Gâteau au chocolat"><a href="gateau-au-chocolat.md">G&acirc;teau au chocolat</a></li>
+      <li class="recipe-item" data-name="Tiramisu"><a href="tiramisu-ricardo.md">Tiramisu</a></li>
+      <li class="recipe-item" data-name="German Pancakes"><a href="german-pancakes.md">German Pancakes</a></li>
+    </ul>
+  </div>
+
+  <!-- AUTRES RECETTES -->
+  <div class="section" data-section="Autres recettes">
+    <h2 class="section-title">Autres recettes</h2>
+    <ul class="recipe-list">
+      <li class="recipe-item" data-name="Spanakopita"><span class="plain">Spanakopita <em>(recipe card &mdash; see original Confluence page)</em></span></li>
+      <li class="recipe-item" data-name="Croustade"><span class="plain">Croustade <em>(recipe card &mdash; see original Confluence page)</em></span></li>
+    </ul>
+  </div>
+
+  <!-- OLD RECIPES -->
+  <div class="section" data-section="Old Recipes">
+    <h2 class="section-title">Old Recipes</h2>
+    <p class="section-desc">Converted from the "Old recipes" folder &mdash; March 2026.</p>
+
+    <h3 class="subsection-title">Appetizers &amp; Snacks</h3>
+    <ul class="recipe-list">
+      <li class="recipe-item" data-name="Bruschetta aux tomates cerises et au citron"><a href="bruschetta-tomates-cerises-citron.md">Bruschetta aux tomates cerises et au citron</a></li>
+      <li class="recipe-item" data-name="Tartines de champignons et de gouda"><a href="tartines-champignons-gouda.md">Tartines de champignons et de gouda</a></li>
+      <li class="recipe-item" data-name="Dukka"><a href="dukka.md">Dukka</a></li>
+    </ul>
+
+    <h3 class="subsection-title">Mains</h3>
+    <ul class="recipe-list">
+      <li class="recipe-item" data-name="Fajitas de poisson"><a href="fajitas-de-poisson.md">Fajitas de poisson</a></li>
+      <li class="recipe-item" data-name="Pan-Roasted Brined Pork Chop"><a href="pan-roasted-brined-pork-chop.md">Pan-Roasted Brined Pork Chop</a></li>
+      <li class="recipe-item" data-name="Red Wine-Braised Brisket"><a href="red-wine-braised-brisket.md">Red Wine-Braised Brisket</a></li>
+      <li class="recipe-item" data-name="The Silkiest Carbonara"><a href="silkiest-carbonara.md">The Silkiest Carbonara</a></li>
+      <li class="recipe-item" data-name="Tuna Casserole with Dill and Potato Chips"><a href="tuna-casserole-dill-potato-chips.md">Tuna Casserole with Dill and Potato Chips</a></li>
+      <li class="recipe-item" data-name="BA's Best Baked Ziti"><a href="bas-best-baked-ziti.md">BA's Best Baked Ziti</a></li>
+      <li class="recipe-item" data-name="BA's Best Macaroni and Cheese"><a href="bas-best-macaroni-and-cheese.md">BA's Best Macaroni and Cheese</a></li>
+      <li class="recipe-item" data-name="Lasagne bolognaise aux champignons"><a href="lasagne-bolognaise-champignons.md">Lasagne bolognaise aux champignons</a></li>
+      <li class="recipe-item" data-name="Sauce bolognaise Ricardo"><a href="sauce-bolognaise-ricardo.md">Sauce bolognaise (Ricardo)</a></li>
+    </ul>
+
+    <h3 class="subsection-title">Desserts</h3>
+    <ul class="recipe-list">
+      <li class="recipe-item" data-name="BA's Best Chocolate Chip Cookies"><a href="bas-best-chocolate-chip-cookies.md">BA's Best Chocolate Chip Cookies</a></li>
+      <li class="recipe-item" data-name="Vanilla Bean Tarte Tatin"><a href="vanilla-bean-tarte-tatin.md">Vanilla Bean Tarte Tatin</a></li>
+      <li class="recipe-item" data-name="BA's Best Pecan Pie"><a href="bas-best-pecan-pie.md">BA's Best Pecan Pie</a></li>
+    </ul>
+  </div>
+
+  <div class="no-results" id="noResults">No recipes match your search.</div>
+</main>
+
+<script>
+(function() {
+  var sections = document.querySelectorAll('.section');
+  var items = document.querySelectorAll('.recipe-item');
+  var searchInput = document.getElementById('search');
+  var tabsContainer = document.getElementById('tabs');
+  var noResults = document.getElementById('noResults');
+  var searchCount = document.getElementById('searchCount');
+  var activeTab = null;
+
+  // Build tabs
+  var allTab = document.createElement('button');
+  allTab.className = 'tab active';
+  allTab.textContent = 'All';
+  allTab.setAttribute('data-target', '');
+  tabsContainer.appendChild(allTab);
+  activeTab = allTab;
+
+  sections.forEach(function(sec) {
+    var btn = document.createElement('button');
+    btn.className = 'tab';
+    btn.textContent = sec.getAttribute('data-section');
+    btn.setAttribute('data-target', sec.getAttribute('data-section'));
+    tabsContainer.appendChild(btn);
+  });
+
+  var tabs = tabsContainer.querySelectorAll('.tab');
+
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      activeTab.classList.remove('active');
+      tab.classList.add('active');
+      activeTab = tab;
+      applyFilters();
+      var target = tab.getAttribute('data-target');
+      if (target && !searchInput.value.trim()) {
+        var sec = document.querySelector('.section[data-section="' + target + '"]');
+        if (sec) sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Normalize for search: strip accents
+  function normalize(str) {
+    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  }
+
+  searchInput.addEventListener('input', function() {
+    applyFilters();
+  });
+
+  function applyFilters() {
+    var query = normalize(searchInput.value.trim());
+    var targetSection = activeTab.getAttribute('data-target');
+    var visibleCount = 0;
+    var totalCount = 0;
+
+    sections.forEach(function(sec) {
+      var sectionName = sec.getAttribute('data-section');
+      var sectionHidden = targetSection && sectionName !== targetSection;
+
+      if (sectionHidden) {
+        sec.classList.add('hidden');
+        return;
+      }
+
+      sec.classList.remove('hidden');
+      var sectionHasVisible = false;
+
+      // Show/hide subsection titles based on whether their list has visible items
+      var lists = sec.querySelectorAll('.recipe-list');
+      lists.forEach(function(list) {
+        var listHasVisible = false;
+        var listItems = list.querySelectorAll('.recipe-item');
+        listItems.forEach(function(item) {
+          totalCount++;
+          var name = normalize(item.getAttribute('data-name') || '');
+          var text = normalize(item.textContent || '');
+          var match = !query || name.indexOf(query) !== -1 || text.indexOf(query) !== -1;
+          if (match) {
+            item.classList.remove('hidden');
+            listHasVisible = true;
+            sectionHasVisible = true;
+            visibleCount++;
+          } else {
+            item.classList.add('hidden');
+          }
+        });
+
+        // Hide subsection title if no items visible
+        var prev = list.previousElementSibling;
+        if (prev && prev.classList.contains('subsection-title')) {
+          if (listHasVisible) {
+            prev.classList.remove('hidden');
+          } else {
+            prev.classList.add('hidden');
+          }
+        }
+      });
+
+      if (!sectionHasVisible && query) {
+        sec.classList.add('hidden');
+      }
+    });
+
+    if (query) {
+      searchCount.style.display = 'block';
+      searchCount.textContent = visibleCount + ' recipe' + (visibleCount !== 1 ? 's' : '') + ' found';
+      noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+    } else {
+      searchCount.style.display = 'none';
+      noResults.style.display = 'none';
+    }
+  }
+})();
+</script>
+</body>
+</html>
