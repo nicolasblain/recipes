@@ -228,6 +228,62 @@
 
   .hidden { display: none !important; }
 
+  /* Recipe detail overlay */
+  .recipe-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: rgba(0,0,0,0.45);
+    justify-content: center;
+    align-items: start;
+    padding: 2rem 1rem;
+    overflow-y: auto;
+  }
+  .recipe-overlay.active { display: flex; }
+  .recipe-overlay-content {
+    background: var(--surface);
+    max-width: 52rem;
+    width: 100%;
+    border-radius: 10px;
+    padding: 2.5rem 2.5rem 2rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.18);
+    position: relative;
+    line-height: 1.75;
+  }
+  .recipe-overlay-content h1 { font-size: 1.6rem; margin-bottom: 0.75rem; color: var(--accent); }
+  .recipe-overlay-content h2 { font-size: 1.25rem; margin: 1.5rem 0 0.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
+  .recipe-overlay-content h3 { font-size: 1.1rem; margin: 1.25rem 0 0.4rem; }
+  .recipe-overlay-content ul, .recipe-overlay-content ol { padding-left: 1.5rem; margin: 0.5rem 0; }
+  .recipe-overlay-content li { margin: 0.25rem 0; }
+  .recipe-overlay-content p { margin: 0.6rem 0; }
+  .recipe-overlay-content hr { border: none; border-top: 1px solid var(--border); margin: 1.5rem 0; }
+  .recipe-overlay-content blockquote { border-left: 3px solid var(--accent); padding-left: 1rem; color: var(--text-muted); margin: 0.75rem 0; }
+  .recipe-overlay-content strong { color: var(--accent); }
+  .recipe-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.25rem;
+    background: none;
+    border: none;
+    font-size: 1.75rem;
+    cursor: pointer;
+    color: var(--text-muted);
+    line-height: 1;
+  }
+  .recipe-close:hover { color: var(--text); }
+  .recipe-back {
+    display: inline-block;
+    margin-bottom: 1rem;
+    color: var(--accent);
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-family: inherit;
+    font-size: 0.95rem;
+  }
+  .recipe-back:hover { text-decoration: underline; }
+
   @media (max-width: 600px) {
     header { padding: 1.25rem 1rem 1rem; }
     main { padding: 1rem 1rem 3rem; }
@@ -564,6 +620,64 @@
       noResults.style.display = 'none';
     }
   }
+})();
+</script>
+
+<!-- Recipe detail overlay -->
+<div class="recipe-overlay" id="recipeOverlay">
+  <div class="recipe-overlay-content">
+    <button class="recipe-close" id="recipeClose">&times;</button>
+    <button class="recipe-back" id="recipeBack">&larr; Back to recipes</button>
+    <div id="recipeBody"></div>
+  </div>
+</div>
+
+<!-- Markdown renderer -->
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+(function() {
+  var overlay = document.getElementById('recipeOverlay');
+  var body = document.getElementById('recipeBody');
+  var closeBtn = document.getElementById('recipeClose');
+  var backBtn = document.getElementById('recipeBack');
+
+  function closeOverlay() {
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  closeBtn.addEventListener('click', closeOverlay);
+  backBtn.addEventListener('click', closeOverlay);
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) closeOverlay();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeOverlay();
+  });
+
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('a[href$=".md"]');
+    if (!link) return;
+    e.preventDefault();
+    var href = link.getAttribute('href');
+
+    body.innerHTML = '<p style="color:var(--text-muted);font-style:italic;">Loading recipe...</p>';
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    overlay.scrollTop = 0;
+
+    fetch(href)
+      .then(function(r) {
+        if (!r.ok) throw new Error('Not found');
+        return r.text();
+      })
+      .then(function(md) {
+        body.innerHTML = marked.parse(md);
+      })
+      .catch(function() {
+        body.innerHTML = '<p style="color:#c33;">Could not load recipe. The file may not be available yet.</p>';
+      });
+  });
 })();
 </script>
 </body>
