@@ -1,0 +1,260 @@
+:root {
+  --bg: #faf8f5;
+  --surface: #fff;
+  --text: #2c2c2c;
+  --text-muted: #6b6b6b;
+  --accent: #b44a2f;
+  --accent-hover: #933a24;
+  --border: #e4ddd5;
+  --search-bg: #f3efe9;
+  --tag-bg: #eee8df;
+  --tag-active-bg: #b44a2f;
+  --tag-active-text: #fff;
+  --highlight: #fce8b2;
+  --shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 2rem 1.5rem 1.25rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.header-inner {
+  max-width: 52rem;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.2rem;
+  color: var(--text);
+}
+
+.search-wrap {
+  position: relative;
+  margin-bottom: 0.85rem;
+}
+
+.search-wrap svg {
+  position: absolute;
+  left: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  stroke: var(--text-muted);
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+#search {
+  width: 100%;
+  padding: 0.65rem 0.85rem 0.65rem 2.5rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--search-bg);
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+#search:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(180,74,47,0.12);
+}
+
+#search::placeholder { color: #a09888; }
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tab {
+  font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 0.3rem 0.7rem;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  background: var(--tag-bg);
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.tab:hover { border-color: var(--accent); color: var(--accent); }
+
+.tab.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+  border-color: var(--tag-active-bg);
+}
+
+.search-count {
+  font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+  display: none;
+}
+
+main {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 4rem;
+}
+
+.recipe-list {
+  list-style: none;
+}
+
+.recipe-item {
+  padding: 0.4rem 0;
+  border-bottom: 1px solid #eee8df;
+  font-size: 0.95rem;
+  transition: background 0.1s;
+}
+
+.recipe-item:last-child { border-bottom: none; }
+
+.recipe-item:hover { background: rgba(180,74,47,0.03); }
+
+.recipe-item a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.1s;
+}
+
+.recipe-item a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+.recipe-item .plain {
+  color: var(--text);
+}
+
+.recipe-item .variant-sep {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin: 0 0.15rem;
+}
+
+.recipe-item mark {
+  background: var(--highlight);
+  color: inherit;
+  border-radius: 2px;
+  padding: 0 1px;
+}
+
+.no-results {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-muted);
+  font-style: italic;
+  display: none;
+}
+
+.hidden { display: none !important; }
+
+/* Recipe detail overlay */
+.recipe-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(0,0,0,0.45);
+  justify-content: center;
+  align-items: start;
+  padding: 2rem 1rem;
+  overflow-y: auto;
+}
+.recipe-overlay.active { display: flex; }
+.recipe-overlay-content {
+  background: var(--surface);
+  max-width: 52rem;
+  width: 100%;
+  border-radius: 10px;
+  padding: 2.5rem 2.5rem 2rem;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.18);
+  position: relative;
+  line-height: 1.75;
+}
+.recipe-overlay-content h1 { font-size: 1.6rem; margin-bottom: 0.75rem; color: var(--accent); }
+.recipe-overlay-content h2 { font-size: 1.25rem; margin: 1.5rem 0 0.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
+.recipe-overlay-content h3 { font-size: 1.1rem; margin: 1.25rem 0 0.4rem; }
+.recipe-overlay-content ul, .recipe-overlay-content ol { padding-left: 1.5rem; margin: 0.5rem 0; }
+.recipe-overlay-content li { margin: 0.25rem 0; }
+.recipe-overlay-content p { margin: 0.6rem 0; }
+.recipe-overlay-content hr { border: none; border-top: 1px solid var(--border); margin: 1.5rem 0; }
+.recipe-overlay-content blockquote { border-left: 3px solid var(--accent); padding-left: 1rem; color: var(--text-muted); margin: 0.75rem 0; }
+.recipe-overlay-content strong { color: var(--accent); }
+.recipe-close {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  background: none;
+  border: none;
+  font-size: 1.75rem;
+  cursor: pointer;
+  color: var(--text-muted);
+  line-height: 1;
+}
+.recipe-close:hover { color: var(--text); }
+.recipe-back {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: var(--accent);
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+.recipe-back:hover { text-decoration: underline; }
+
+/* Recipe metadata bar */
+.recipe-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+.recipe-meta span::before {
+  margin-right: 0.3rem;
+}
+
+@media (max-width: 600px) {
+  header { padding: 1.25rem 1rem 1rem; }
+  main { padding: 1rem 1rem 3rem; }
+  h1 { font-size: 1.4rem; }
+  .tab { font-size: 0.72rem; padding: 0.25rem 0.55rem; }
+}
