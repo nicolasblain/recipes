@@ -1,6 +1,6 @@
 ---
-title: Salade de chou crémeuse
-tags: [Recettes de tous les jours]
+title: "Creamy Coleslaw"
+tags: [Everyday]
 prep_time: 15 min
 cook_time: 0 min
 servings: 8 (2 liters or 8 cups)

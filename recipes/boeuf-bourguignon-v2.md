@@ -1,11 +1,11 @@
 ---
-title: Boeuf bourguignon (2)
-tags: [Recettes pour des occasions]
+title: "Beef Bourguignon"
+tags: [Special Occasions]
 prep_time: 20 min
 cook_time: 150 min
 servings: 6
 source: https://www.ricardocuisine.com/recettes/5730-boeuf-bourguignon-2-
-group: "Bœuf bourguignon"
+group: "Beef Bourguignon"
 variant_label: Ricardo v2
 group_order: 2
 group: "Bœuf bourguignon"

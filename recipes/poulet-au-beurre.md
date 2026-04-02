@@ -1,11 +1,11 @@
 ---
-title: Poulet au beurre (le meilleur)
-tags: [Recettes de tous les jours]
+title: "Butter Chicken"
+tags: [Everyday]
 prep_time: 25 min
 cook_time: 30 min
 servings: 4
 source: https://www.ricardocuisine.com/recettes/9017-poulet-au-beurre-le-meilleur
-group: "Poulet au beurre"
+group: "Butter Chicken"
 variant_label: Ricardo
 group_order: 1
 group: "Poulet au beurre"

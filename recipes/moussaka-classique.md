@@ -1,6 +1,6 @@
 ---
-title: Moussaka classique (la meilleure)
-tags: [Recettes pour des occasions]
+title: "Classic Moussaka"
+tags: [Special Occasions]
 prep_time: 30 min
 cook_time: 75 min
 servings: 8

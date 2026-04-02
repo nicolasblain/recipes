@@ -1,6 +1,6 @@
 ---
-title: Macaronis gratinés au fromage (Mac and Cheese)
-tags: [Recettes de tous les jours]
+title: "Mac and Cheese"
+tags: [Everyday]
 prep_time: 20 min
 cook_time: 25 min
 servings: 6

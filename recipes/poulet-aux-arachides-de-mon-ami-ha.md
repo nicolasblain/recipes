@@ -1,11 +1,11 @@
 ---
-title: Poulet aux arachides de mon ami Ha
-tags: [Recettes de tous les jours]
+title: "Ha's Peanut Chicken"
+tags: [Everyday]
 prep_time: 30 min
 cook_time: 20 min
 servings: 6
 source: https://www.ricardocuisine.com/recettes/91-poulet-aux-arachides-de-mon-ami-ha
-group: "Poulet aux arachides et aux épinards"
+group: "Peanut Chicken with Spinach"
 variant_label: v2
 group_order: 2
 group: "Poulet aux arachides et aux épinards"

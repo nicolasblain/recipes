@@ -1,6 +1,6 @@
 ---
-title: Salade tiède de patates douces, kale et poulet
-tags: [Recettes de tous les jours]
+title: "Warm Sweet Potato, Kale and Chicken Salad"
+tags: [Everyday]
 prep_time: 20 min
 cook_time: 25 min
 servings: 4

@@ -1,6 +1,6 @@
 ---
 title: BA's Best Chocolate Chip Cookies
-tags: [Recettes pour des occasions]
+tags: [Special Occasions]
 prep_time: 15min
 cook_time: 10min
 servings: 16

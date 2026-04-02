@@ -1,6 +1,6 @@
 ---
-title: German Pancakes II
-tags: [Recettes pour des occasions]
+title: "German Pancakes"
+tags: [Special Occasions]
 prep_time:
 cook_time:
 servings:

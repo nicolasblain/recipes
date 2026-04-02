@@ -1,6 +1,6 @@
 ---
-title: Saumon grillé au miso et condiment à l'arachide et au gingembre rôti
-tags: [Recettes de tous les jours]
+title: "Miso Glazed Salmon with Peanut Ginger Relish"
+tags: [Everyday]
 prep_time: 15 min
 cook_time: 25 min
 servings: 4

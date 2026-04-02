@@ -1,5 +1,5 @@
 ---
-title: Lasagne bolognaise aux champignons
+title: "Mushroom Bolognese Lasagna"
 tags: [pasta, beef, dinner, occasions, freezer-friendly]
 prep_time: 15min
 cook_time: 55min

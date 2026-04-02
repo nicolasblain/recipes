@@ -1,6 +1,6 @@
 ---
 title: Saffron Risotto
-tags: [Recettes pour des occasions]
+tags: [Special Occasions]
 prep_time: 
 cook_time: 
 servings: Makes 4

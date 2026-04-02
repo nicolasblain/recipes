@@ -1,6 +1,6 @@
 ---
 title: Buffalo Wing Popcorn
-tags: [Recettes pour des occasions]
+tags: [Special Occasions]
 prep_time: 
 cook_time: 
 servings: 12  Servings

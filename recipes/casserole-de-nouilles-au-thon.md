@@ -1,6 +1,6 @@
 ---
-title: Casserole de nouilles au thon
-tags: [Recettes de tous les jours]
+title: "Tuna Noodle Casserole"
+tags: [Everyday]
 prep_time: 25 min
 cook_time: 30 min
 servings: 4

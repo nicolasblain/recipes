@@ -1,6 +1,6 @@
 ---
-title: Quinoa aux légumes grillés et au tofu
-tags: [Recettes de tous les jours]
+title: "Quinoa with Grilled Vegetables and Tofu"
+tags: [Everyday]
 prep_time: 30 min
 cook_time: 30 min
 servings: 4

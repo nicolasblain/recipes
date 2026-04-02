@@ -1,6 +1,6 @@
 ---
-title: Salade de haricots blancs et de crevettes grillées
-tags: [Recettes de tous les jours]
+title: "White Bean and Grilled Shrimp Salad"
+tags: [Everyday]
 prep_time: 15 min
 cook_time: 12 min
 servings: 4-6

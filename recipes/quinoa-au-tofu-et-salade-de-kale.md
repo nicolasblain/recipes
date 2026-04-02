@@ -1,6 +1,6 @@
 ---
-title: Quinoa au tofu et salade de kale
-tags: [Recettes de tous les jours]
+title: "Quinoa with Tofu and Kale Salad"
+tags: [Everyday]
 prep_time: 20 min
 cook_time: 20 min
 servings: 4

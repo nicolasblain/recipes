@@ -1,6 +1,6 @@
 ---
 title: Ratatouille Pasta
-tags: [Recettes de tous les jours]
+tags: [Everyday]
 prep_time:
 cook_time:
 servings: 4–6

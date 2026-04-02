@@ -1,6 +1,6 @@
 ---
-title: Gravlax (le meilleur)
-tags: [Recettes pour des occasions]
+title: "Gravlax"
+tags: [Special Occasions]
 prep_time: 20 min
 cook_time: 2880 min
 servings: 12

@@ -1,6 +1,6 @@
 ---
 title: Classic Minestrone Soup Recipe
-tags: [Recettes de tous les jours]
+tags: [Everyday]
 prep_time: 20
 cook_time: 45
 servings: 6

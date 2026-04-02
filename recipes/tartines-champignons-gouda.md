@@ -1,5 +1,5 @@
 ---
-title: Tartines de champignons et de gouda
+title: "Mushroom and Gouda Tartines"
 tags: [appetizer, mushrooms, cheese, bread, lunch]
 prep_time: 10min
 cook_time: 20min

@@ -1,6 +1,6 @@
 ---
-title: Soupe-repas aux légumes et aux pois chiches
-tags: [Recettes de tous les jours]
+title: "Hearty Vegetable and Chickpea Soup"
+tags: [Everyday]
 prep_time: 20 min
 cook_time: 40 min
 servings: 4

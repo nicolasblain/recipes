@@ -1,6 +1,6 @@
 ---
-title: Pad thaï (le meilleur)
-tags: [Recettes de tous les jours]
+title: "Pad Thai"
+tags: [Everyday]
 prep_time: 40 min
 cook_time: 20 min
 servings: 6

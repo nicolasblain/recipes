@@ -1,6 +1,6 @@
 ---
-title: Pain aux bananes ultra moelleux (le meilleur)
-tags: [Recettes pour des occasions]
+title: "Banana Bread"
+tags: [Special Occasions]
 prep_time: 20 min
 cook_time: 60 min
 servings: 8-10

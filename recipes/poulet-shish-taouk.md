@@ -1,6 +1,6 @@
 ---
-title: Poulet shish taouk (le meilleur)
-tags: [Recettes de tous les jours]
+title: "Chicken Shish Taouk"
+tags: [Everyday]
 prep_time: 20 min
 cook_time: 15 min
 servings: 4

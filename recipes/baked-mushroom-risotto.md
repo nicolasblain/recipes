@@ -1,6 +1,6 @@
 ---
 title: Chef John's Baked Mushroom Risotto
-tags: [Recettes pour des occasions]
+tags: [Special Occasions]
 prep_time:
 cook_time:
 servings:

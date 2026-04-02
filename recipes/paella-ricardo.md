@@ -1,6 +1,6 @@
 ---
-title: Paëlla (la meilleure)
-tags: [Recettes pour des occasions]
+title: "Paella"
+tags: [Special Occasions]
 prep_time: 45 min
 cook_time: 45 min
 servings: 8

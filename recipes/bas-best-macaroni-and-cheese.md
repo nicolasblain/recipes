@@ -1,6 +1,6 @@
 ---
 title: BA's Best Macaroni and Cheese
-tags: [Recettes de tous les jours]
+tags: [Everyday]
 prep_time: 20min
 cook_time: 30min
 servings: 4

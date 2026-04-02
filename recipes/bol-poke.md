@@ -1,6 +1,6 @@
 ---
-title: Bol poké
-tags: [Recettes de tous les jours]
+title: "Poké Bowl"
+tags: [Everyday]
 prep_time: 35 min
 cook_time: 15 min
 servings: 4

@@ -1,11 +1,11 @@
 ---
 title: Chicken Tikka Masala
-tags: [Recettes de tous les jours]
+tags: [Everyday]
 prep_time:
 cook_time:
 servings: 6
 source: https://www.bonappetit.com/recipe/chicken-tikka-masala
-group: "Poulet au beurre"
+group: "Butter Chicken"
 variant_label: Chicken Tikka Masala
 group_order: 2
 group: "Poulet au beurre"

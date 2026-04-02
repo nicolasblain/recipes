@@ -1,6 +1,6 @@
 ---
-title: Salade d'asperges et de pois chiches avec fromage halloumi grillé
-tags: [Recettes de tous les jours]
+title: "Asparagus and Chickpea Salad with Grilled Halloumi"
+tags: [Everyday]
 prep_time: 15 min
 cook_time: 15 min
 servings: 4

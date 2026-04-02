@@ -1,6 +1,6 @@
 ---
 title: Best Bolognese
-tags: [Recettes de tous les jours]
+tags: [Everyday]
 prep_time: 
 cook_time: 35 minutes
 servings: 4

@@ -1,6 +1,6 @@
 ---
 title: Classic Caesar Salad
-tags: [Recettes de tous les jours]
+tags: [Everyday]
 prep_time: 
 cook_time: 10 minutes
 servings: 6

@@ -1,6 +1,6 @@
 ---
-title: Gnocchis au chou-fleur caramélisé
-tags: [Recettes de tous les jours]
+title: "Gnocchi with Caramelized Cauliflower"
+tags: [Everyday]
 prep_time: 15 min
 cook_time: 15 min
 servings: 6

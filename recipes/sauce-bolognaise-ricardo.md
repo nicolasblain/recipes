@@ -1,5 +1,5 @@
 ---
-title: Sauce bolognaise (Ricardo)
+title: "Bolognese Sauce (Ricardo)"
 tags: [pasta, beef, pork, veal, sauce, dinner, freezer-friendly]
 prep_time: 25min
 cook_time: 3h

@@ -1,6 +1,6 @@
 ---
-title: Courge farcie au quinoa et au cheddar d'ici
-tags: [Recettes de tous les jours]
+title: "Stuffed Squash with Quinoa and Cheddar"
+tags: [Everyday]
 prep_time: 25 min
 cook_time: 75 min
 servings: 4

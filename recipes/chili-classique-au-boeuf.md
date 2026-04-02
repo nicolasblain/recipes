@@ -1,6 +1,6 @@
 ---
-title: Chili classique au boeuf
-tags: [Recettes pour des occasions]
+title: "Classic Beef Chili"
+tags: [Special Occasions]
 prep_time: 15 min
 cook_time: 60 min
 servings: 6

@@ -1,11 +1,11 @@
 ---
-title: Fajitas au poulet
-tags: [Recettes de tous les jours]
+title: "Chicken Fajitas"
+tags: [Everyday]
 prep_time: 20 min
 cook_time: 15 min
 servings: 4
 source: https://www.ricardocuisine.com/recettes/3569-fajitas-au-poulet
-group: "Fajitas au poulet"
+group: "Chicken Fajitas"
 variant_label: Ricardo
 group_order: 1
 group: "Fajitas au poulet"

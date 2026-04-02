@@ -1,6 +1,6 @@
 ---
-title: Wraps au thon et au cari
-tags: [Recettes de tous les jours]
+title: "Curry Tuna Wraps"
+tags: [Everyday]
 prep_time: 20 min
 cook_time: 0 min
 servings: 4

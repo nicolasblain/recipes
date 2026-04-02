@@ -1,6 +1,6 @@
 ---
 title: Chicken Thigh Marinade
-tags: [Recettes de tous les jours]
+tags: [Everyday]
 prep_time: 5 min
 cook_time: 15 min
 servings: 4

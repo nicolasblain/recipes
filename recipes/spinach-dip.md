@@ -1,6 +1,6 @@
 ---
-title: Best Spinach Dip Ever
-tags: [Recettes pour des occasions]
+title: "Spinach Dip"
+tags: [Special Occasions]
 prep_time:
 cook_time:
 servings:

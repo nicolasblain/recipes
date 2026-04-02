@@ -1,6 +1,6 @@
 ---
-title: Rôti de porc aux patates jaunes
-tags: [Recettes pour des occasions]
+title: "Pork Roast with Yellow Potatoes"
+tags: [Special Occasions]
 prep_time: 20 min
 cook_time: 240 min
 servings: 6

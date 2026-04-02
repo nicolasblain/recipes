@@ -1,6 +1,6 @@
 ---
-title: Salade de halloumi et de patates douces rôties, vinaigrette à l'aneth
-tags: [Recettes de tous les jours]
+title: "Halloumi and Roasted Sweet Potato Salad"
+tags: [Everyday]
 prep_time: 30 min
 cook_time: 20 min
 servings: 2

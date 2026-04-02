@@ -1,6 +1,6 @@
 ---
 title: French Onion Soup
-tags: [Recettes pour des occasions]
+tags: [Special Occasions]
 prep_time:
 cook_time:
 servings:

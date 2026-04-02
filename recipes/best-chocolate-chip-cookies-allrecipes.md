@@ -1,6 +1,6 @@
 ---
 title: Best Chocolate Chip Cookies
-tags: [Recettes pour des occasions]
+tags: [Special Occasions]
 prep_time:
 cook_time:
 servings:

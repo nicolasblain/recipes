@@ -1,6 +1,6 @@
 ---
-title: Coquilles Saint-Jacques (les meilleures)
-tags: [Recettes pour des occasions]
+title: "Scallops Gratin"
+tags: [Special Occasions]
 prep_time: 25 min
 cook_time: 35 min
 servings: 4

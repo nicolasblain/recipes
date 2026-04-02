@@ -1,6 +1,6 @@
 ---
-title: Oeufs bénédictine (les meilleurs)
-tags: [Recettes pour des occasions]
+title: "Eggs Benedict"
+tags: [Special Occasions]
 prep_time: 40 min
 cook_time: 30 min
 servings: 4

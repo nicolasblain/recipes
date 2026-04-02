@@ -1,6 +1,6 @@
 ---
-title: Pâte à pizza maison
-tags: [Recettes pour des occasions]
+title: "Homemade Pizza Dough"
+tags: [Special Occasions]
 prep_time: 10 min
 cook_time: 35 min
 servings: 2 doughs

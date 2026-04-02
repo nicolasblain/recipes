@@ -1,6 +1,6 @@
 ---
 title: Slow-Roast Gochujang Chicken
-tags: [Recettes pour des occasions]
+tags: [Special Occasions]
 prep_time: 
 cook_time: 
 servings: 4

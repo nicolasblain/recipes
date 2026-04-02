@@ -1,6 +1,6 @@
 ---
-title: Le meilleur-meilleur gâteau au chocolat
-tags: [Recettes pour des occasions]
+title: "Chocolate Cake"
+tags: [Special Occasions]
 prep_time: 45 min
 cook_time: 50 min
 servings: 8-10

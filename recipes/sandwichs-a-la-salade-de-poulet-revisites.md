@@ -1,6 +1,6 @@
 ---
-title: Sandwichs à la salade de poulet revisités
-tags: [Recettes de tous les jours]
+title: "Chicken Salad Sandwiches"
+tags: [Everyday]
 prep_time: 15 min
 cook_time: 0 min
 servings: 4

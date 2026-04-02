@@ -1,5 +1,5 @@
 ---
-title: Sauce Bolognaise (la meilleure)
+title: "Bolognese Sauce"
 tags: [pasta, beef, pork, dinner, occasions, sauce]
 prep_time: 30min
 cook_time: 3h

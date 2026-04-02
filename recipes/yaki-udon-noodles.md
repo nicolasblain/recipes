@@ -1,6 +1,6 @@
 ---
 title: Easy 15-Minute Yaki Udon (Stir Fried Udon Noodles)
-tags: [Recettes de tous les jours]
+tags: [Everyday]
 prep_time: 5 min
 cook_time: 10 min
 servings: 2

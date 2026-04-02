@@ -1,6 +1,6 @@
 ---
-title: Asian Chopped Salad Recipe
-tags: [Recettes de tous les jours]
+title: "Asian Chopped Salad"
+tags: [Everyday]
 prep_time: 25 min
 cook_time: 5 min
 servings: 6

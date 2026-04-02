@@ -1,5 +1,5 @@
 ---
-title: Fajitas de poisson
+title: "Fish Fajitas"
 tags: [fish, dinner, mexican, lunch]
 prep_time: 30min
 cook_time: 5min

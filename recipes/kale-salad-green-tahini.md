@@ -1,6 +1,6 @@
 ---
 title: Anything-Goes Kale Salad with Green Tahini Dressing
-tags: [Recettes de tous les jours]
+tags: [Everyday]
 prep_time: 15
 cook_time: 
 servings: 1

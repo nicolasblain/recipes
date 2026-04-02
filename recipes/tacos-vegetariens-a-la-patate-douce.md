@@ -1,6 +1,6 @@
 ---
-title: Tacos Végétariens à la Patate Douce & Crème Sure à l'Oignon
-tags: [Recettes de tous les jours]
+title: "Vegetarian Sweet Potato Tacos"
+tags: [Everyday]
 prep_time: 10 min
 cook_time: 15 min
 servings: 4

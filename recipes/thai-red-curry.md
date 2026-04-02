@@ -1,6 +1,6 @@
 ---
 title: Thai Red Curry with Vegetables
-tags: [Recettes de tous les jours]
+tags: [Everyday]
 prep_time: 10 min
 cook_time: 30 min
 servings: 4

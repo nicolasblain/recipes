@@ -1,6 +1,6 @@
 ---
-title: Tiramisu (le meilleur)
-tags: [Recettes pour des occasions]
+title: "Tiramisu"
+tags: [Special Occasions]
 prep_time: 45 min
 cook_time: 5 min
 servings: 10-12

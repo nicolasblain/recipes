@@ -1,6 +1,6 @@
 ---
 title: One Pot French Onion Pasta
-tags: [Recettes de tous les jours]
+tags: [Everyday]
 prep_time: 10
 cook_time: 50
 servings: 

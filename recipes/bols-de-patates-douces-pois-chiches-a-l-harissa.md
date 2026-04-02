@@ -1,6 +1,6 @@
 ---
-title: Bols de patates douces, pois chiches à l'harissa et yogourt grec à l'avocat
-tags: [Recettes de tous les jours]
+title: "Sweet Potato and Harissa Chickpea Bowls"
+tags: [Everyday]
 prep_time: 35 min
 cook_time: 25 min
 servings: 4

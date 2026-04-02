@@ -1,6 +1,6 @@
 ---
-title: Sauce dragon
-tags: [Recettes de tous les jours]
+title: "Dragon Sauce"
+tags: [Everyday]
 prep_time: 10 min
 cook_time: 0 min
 servings: 6 (150 ml or ⅔ cup)

@@ -1,6 +1,6 @@
 ---
-title: Bols de nouilles ramen et saumon à la sauce hoisin
-tags: [Recettes de tous les jours]
+title: "Ramen Noodle Bowls with Hoisin Salmon"
+tags: [Everyday]
 prep_time: 20 min
 cook_time: 5 min
 servings: 4

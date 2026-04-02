@@ -1,6 +1,6 @@
 ---
-title: Banana Banana Bread
-tags: [Recettes pour des occasions]
+title: "Banana Bread"
+tags: [Special Occasions]
 prep_time:
 cook_time:
 servings:

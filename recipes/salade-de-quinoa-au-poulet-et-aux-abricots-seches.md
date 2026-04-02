@@ -1,6 +1,6 @@
 ---
-title: Salade de quinoa au poulet et aux abricots secs
-tags: [Recettes de tous les jours]
+title: "Quinoa Salad with Chicken and Dried Apricots"
+tags: [Everyday]
 prep_time: 20 min
 cook_time: 15 min
 servings: 4

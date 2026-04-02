@@ -1,6 +1,6 @@
 ---
 title: The Best Thai Coconut Soup
-tags: [Recettes de tous les jours]
+tags: [Everyday]
 prep_time:
 cook_time:
 servings:

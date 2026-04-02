@@ -1,6 +1,6 @@
 ---
 title: Saag Paneer, But With Feta
-tags: [Recettes pour des occasions]
+tags: [Special Occasions]
 prep_time: 
 cook_time: 
 servings: 4

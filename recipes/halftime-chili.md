@@ -1,6 +1,6 @@
 ---
-title: Ground Beef Chili
-tags: [Recettes pour des occasions]
+title: "Halftime Chili"
+tags: [Special Occasions]
 prep_time:
 cook_time: 15 minutes
 servings: 8–10 Servings

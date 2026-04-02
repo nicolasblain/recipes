@@ -1,6 +1,6 @@
 ---
-title: Tartare de saumon (le meilleur)
-tags: [Recettes pour des occasions]
+title: "Salmon Tartare"
+tags: [Special Occasions]
 prep_time: 30 min
 cook_time: 0 min
 servings: 4

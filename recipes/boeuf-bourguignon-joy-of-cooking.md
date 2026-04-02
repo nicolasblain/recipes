@@ -1,8 +1,8 @@
 ---
-title: "Bœuf bourguignon"
-tags: [Recettes pour des occasions]
+title: "Beef Bourguignon"
+tags: [Special Occasions]
 plain: true
-group: "Bœuf bourguignon"
+group: "Beef Bourguignon"
 variant_label: Joy of Cooking
 group_order: 3
 ---

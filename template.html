@@ -3,35 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Recettes</title>
+<title>Recipes</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
   <div class="header-inner">
-    <h1>Recettes</h1>
+    <h1>Recipes</h1>
     <div class="search-wrap">
       <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input type="text" id="search" placeholder="Search recipes..." autocomplete="off" spellcheck="false">
+      <input type="text" id="search" placeholder="Search recipes…" autocomplete="off" spellcheck="false">
     </div>
     <nav class="tabs" id="tabs"></nav>
     <div class="search-count" id="searchCount"></div>
   </div>
 </header>
 
-<main id="main">
-  <ul class="recipe-list" id="recipeList">
+<main>
+  <ul class="recipe-grid" id="recipeList">
 {{RECIPE_LIST}}
   </ul>
   <div class="no-results" id="noResults">No recipes match your search.</div>
 </main>
 
-<!-- Recipe detail overlay -->
 <div class="recipe-overlay" id="recipeOverlay">
   <div class="recipe-overlay-content">
     <button class="recipe-close" id="recipeClose">&times;</button>
-    <button class="recipe-back" id="recipeBack">&larr; Back to recipes</button>
+    <button class="recipe-back" id="recipeBack">&larr; Back</button>
     <div id="recipeBody"></div>
   </div>
 </div>

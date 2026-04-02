@@ -1,6 +1,6 @@
 ---
 title: Scott Hobb's Amazing Whisky Grilled Baby Back Ribs
-tags: [Recettes pour des occasions]
+tags: [Special Occasions]
 prep_time:
 cook_time:
 servings:

@@ -1,6 +1,6 @@
 ---
 title: Baked Teriyaki Chicken
-tags: [Recettes de tous les jours]
+tags: [Everyday]
 prep_time:
 cook_time:
 servings:

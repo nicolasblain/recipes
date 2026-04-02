@@ -1,6 +1,6 @@
 ---
-title: Bol Buddha
-tags: [Recettes de tous les jours]
+title: "Buddha Bowl"
+tags: [Everyday]
 prep_time: 30 min
 cook_time: 12 min
 servings: 4

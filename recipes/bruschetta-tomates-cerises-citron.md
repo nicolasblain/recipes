@@ -1,5 +1,5 @@
 ---
-title: Bruschetta aux tomates cerises et au citron
+title: "Cherry Tomato and Lemon Bruschetta"
 tags: [appetizer, tomato, bread, italian, summer]
 prep_time: 20min
 cook_time: 15min

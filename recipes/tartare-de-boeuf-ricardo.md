@@ -1,11 +1,11 @@
 ---
-title: Tartare de boeuf (le meilleur)
-tags: [Recettes pour des occasions]
+title: "Beef Tartare"
+tags: [Special Occasions]
 prep_time: 30 min
 cook_time: 0 min
 servings: 4
 source: https://www.ricardocuisine.com/recettes/5812-tartare-de-boeuf-le-meilleur
-group: "Tartare de bœuf"
+group: "Beef Tartare"
 variant_label: Ricardo
 group_order: 1
 group: "Tartare de bœuf"

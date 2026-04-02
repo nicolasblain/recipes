@@ -1,6 +1,6 @@
 ---
-title: Rôti de côte de boeuf (le meilleur)
-tags: [Recettes pour des occasions]
+title: "Prime Rib Roast"
+tags: [Special Occasions]
 prep_time: 15 min
 cook_time: 145 min
 servings: 6

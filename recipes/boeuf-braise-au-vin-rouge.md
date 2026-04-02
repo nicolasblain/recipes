@@ -1,6 +1,6 @@
 ---
-title: Boeuf braisé au vin rouge
-tags: [Recettes pour des occasions]
+title: "Red Wine Braised Beef"
+tags: [Special Occasions]
 prep_time: 25 min
 cook_time: 240 min
 servings: 6

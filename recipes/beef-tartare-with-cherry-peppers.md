@@ -1,11 +1,11 @@
 ---
 title: Beef Tartare with Cherry Peppers
-tags: [Recettes pour des occasions]
+tags: [Special Occasions]
 prep_time:
 cook_time:
 servings: 4  Servings
 source: https://www.bonappetit.com/recipe/beef-tartare-with-cherry-peppers
-group: "Tartare de bœuf"
+group: "Beef Tartare"
 variant_label: "Bon Appétit"
 group_order: 2
 group: "Tartare de bœuf"

@@ -1,6 +1,6 @@
 ---
-title: Soupe minestrone aux tomates grillées
-tags: [Recettes de tous les jours]
+title: "Roasted Tomato Minestrone"
+tags: [Everyday]
 prep_time: 20 min
 cook_time: 25 min
 servings: 8

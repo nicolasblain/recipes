@@ -1,6 +1,6 @@
 ---
 title: Ratatouille
-tags: [Recettes de tous les jours]
+tags: [Everyday]
 prep_time: 30 min
 cook_time: 35 min
 servings: 6

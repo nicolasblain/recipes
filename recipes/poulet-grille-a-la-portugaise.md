@@ -1,6 +1,6 @@
 ---
-title: Poulet grillé à la portugaise (le meilleur)
-tags: [Recettes de tous les jours]
+title: "Portuguese Grilled Chicken"
+tags: [Everyday]
 prep_time: 30 min
 cook_time: 105 min
 servings: 4

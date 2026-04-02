@@ -1,11 +1,11 @@
 ---
 title: Fajita Seasoning
-tags: [Recettes de tous les jours]
+tags: [Everyday]
 prep_time:
 cook_time:
 servings:
 source: https://www.allrecipes.com/recipe/232967/fajita-seasoning/
-group: "Fajitas au poulet"
+group: "Chicken Fajitas"
 variant_label: Fajita seasoning
 group_order: 2
 group: "Fajitas au poulet"

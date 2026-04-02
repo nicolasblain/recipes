@@ -1,6 +1,6 @@
 ---
-title: Salade de pâtes à l'italienne
-tags: [Recettes de tous les jours]
+title: "Italian Pasta Salad"
+tags: [Everyday]
 prep_time: 25 min
 cook_time: 12 min
 servings: 10

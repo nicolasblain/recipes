@@ -1,6 +1,6 @@
 ---
-title: Poulet chasseur (le meilleur)
-tags: [Recettes de tous les jours]
+title: "Chicken Chasseur"
+tags: [Everyday]
 prep_time: 20 min
 cook_time: 90 min
 servings: 4

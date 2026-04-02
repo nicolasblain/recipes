@@ -1,11 +1,11 @@
 ---
-title: Boeuf bourguignon (le meilleur)
-tags: [Recettes pour des occasions]
+title: "Beef Bourguignon"
+tags: [Special Occasions]
 prep_time: 30 min
 cook_time: 120 min
 servings: 6
 source: https://www.ricardocuisine.com/recettes/7859-boeuf-bourguignon-le-meilleur
-group: "Bœuf bourguignon"
+group: "Beef Bourguignon"
 variant_label: Ricardo v1
 group_order: 1
 group: "Bœuf bourguignon"

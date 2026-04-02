@@ -1,6 +1,6 @@
 ---
-title: Couscous royal
-tags: [Recettes de tous les jours]
+title: "Royal Couscous"
+tags: [Everyday]
 prep_time: 45 min
 cook_time: 85 min
 servings: 8

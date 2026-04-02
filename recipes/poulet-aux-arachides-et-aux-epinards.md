@@ -1,11 +1,11 @@
 ---
-title: Poulet aux arachides et aux épinards
-tags: [Recettes de tous les jours]
+title: "Peanut Chicken with Spinach"
+tags: [Everyday]
 prep_time: 20 min
 cook_time: 20 min
 servings: 4
 source: https://www.ricardocuisine.com/recettes/5968-poulet-aux-arachides-et-aux-epinards
-group: "Poulet aux arachides et aux épinards"
+group: "Peanut Chicken with Spinach"
 variant_label: v1
 group_order: 1
 group: "Poulet aux arachides et aux épinards"

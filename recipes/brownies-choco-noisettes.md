@@ -1,6 +1,6 @@
 ---
-title: Brownies choco-noisettes (les meilleurs)
-tags: [Recettes pour des occasions]
+title: "Chocolate Hazelnut Brownies"
+tags: [Special Occasions]
 prep_time: 20 min
 cook_time: 35 min
 servings: 16

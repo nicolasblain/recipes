@@ -1,6 +1,6 @@
 ---
-title: Sandwich au poulet à la vietnamienne
-tags: [Recettes de tous les jours]
+title: "Vietnamese Chicken Sandwich"
+tags: [Everyday]
 prep_time: 20 min
 cook_time: 0 min
 servings: 3-4

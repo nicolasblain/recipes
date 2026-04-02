@@ -1,6 +1,6 @@
 ---
-title: Bol d'orge aux dattes et aux légumes rôtis
-tags: [Recettes de tous les jours]
+title: "Barley Bowl with Dates and Roasted Vegetables"
+tags: [Everyday]
 prep_time: 35 min
 cook_time: 45 min
 servings: 6

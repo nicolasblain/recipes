@@ -1,6 +1,6 @@
 ---
-title: Pâtes aux légumes et aux crevettes
-tags: [Recettes de tous les jours]
+title: "Shrimp and Vegetable Pasta"
+tags: [Everyday]
 prep_time: 30 min
 cook_time: 35 min
 servings: 4
