@@ -33,3 +33,4 @@ source: https://www.allrecipes.com/recipe/9023/baked-teriyaki-chicken/
 - For extra flavor, marinate the chicken in the sauce for 1-2 hours in the fridge before baking.
 - Serve over steamed rice with the pan sauce spooned on top.
 - Garnish with sesame seeds and sliced green onions.
+- Make a lot of sauce
